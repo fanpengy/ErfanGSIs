@@ -121,6 +121,14 @@ else
         done
     fi
     cd "$LOCALDIR"
+    LS=`ls $systemdir`
+    echo "systemdir:$LS"
+    LS=`ls $systemdir/system`
+    echo "systemdir/system:$LS"
+    if [[ -e "$systemdir/system/build.prop" ]]; then
+        LS=`cat "$systemdir/system/build.prop"`
+        echo "prop:$LS"
+    fi
     sed -i "/ro.build.system_root_image/d" "$systemdir/system/build.prop"
     sed -i "/ro.build.ab_update/d" "$systemdir/system/build.prop"
     echo "ro.build.system_root_image=true" >> "$systemdir/system/build.prop"
