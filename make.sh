@@ -80,7 +80,7 @@ echo "sourcetype:$sourcetype"
 
 tempdirname="tmp"
 tempdir="$LOCALDIR/$tempdirname"
-systemdir="$tempdir/system"
+systemdir="$tempdir"
 toolsdir="$LOCALDIR/tools"
 romsdir="$LOCALDIR/roms"
 prebuiltdir="$LOCALDIR/prebuilt"
