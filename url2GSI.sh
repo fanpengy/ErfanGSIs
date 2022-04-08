@@ -61,8 +61,10 @@ if [[ ! -n $2 ]]; then
 fi
 
 URL=$1
+echo $URL
 shift
 SRCTYPE=$1
+echo $SRCTYPE
 shift
 
 ORIGINAL_URL=$URL
@@ -72,6 +74,7 @@ if [[ $SRCTYPE == *":"* ]]; then
 else
     SRCTYPENAME=$SRCTYPE
 fi
+echo $SRCTYPENAME
 
 DOWNLOAD()
 {
