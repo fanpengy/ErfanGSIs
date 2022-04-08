@@ -92,6 +92,7 @@ echo "systemdir:$systemdir"
 echo "Create Temp dir"
 rm -rf $tempdir
 mkdir -p "$systemdir"
+mkdir -p "$systemdir/system"
 
 if [ "$sourcetype" == "Aonly" ]; then
     echo "Warning: Aonly source detected, using P AOSP ramdisk"
