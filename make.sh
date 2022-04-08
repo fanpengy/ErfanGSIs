@@ -21,9 +21,9 @@ LOCALDIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
 sourcepath=$1
 romtype=$2
 outputtype=$3
-echo $sourcepath
-echo $romtype
-echo $outputtype
+echo "sourcepath:$sourcepath"
+echo "romtype:$romtype"
+echo "outputtype:$outputtype"
 
 if [[ $romtype == *":"* ]]; then
     romtypename=`echo "$romtype" | cut -d ":" -f 2`
@@ -65,18 +65,18 @@ fi
 
 # Setup source system partition
 systempath=$sourcepath
-echo $systempath
+echo "systempath:$systempath"
 if [[ -e "$sourcepath/mounted.txt" ]]; then
     systempath=$sourcepath/system
 fi
-echo $systempath
+echo "systempath:$systempath"
 
 # Detect Source type, AB or not
 sourcetype="Aonly"
 if [[ -e "$sourcepath/system" ]]; then
     sourcetype="AB"
 fi
-echo $sourcetype
+echo "sourcetype:$sourcetype"
 
 tempdirname="tmp"
 tempdir="$LOCALDIR/$tempdirname"
@@ -85,6 +85,9 @@ toolsdir="$LOCALDIR/tools"
 romsdir="$LOCALDIR/roms"
 prebuiltdir="$LOCALDIR/prebuilt"
 scriptsdir="$LOCALDIR/scripts"
+
+echo "tempdir:$tempdir"
+echo "systemdir:$systemdir"
 
 echo "Create Temp dir"
 rm -rf $tempdir
