@@ -21,6 +21,9 @@ LOCALDIR=`cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd`
 sourcepath=$1
 romtype=$2
 outputtype=$3
+echo $sourcepath
+echo $romtype
+echo $outputtype
 
 if [[ $romtype == *":"* ]]; then
     romtypename=`echo "$romtype" | cut -d ":" -f 2`
@@ -62,15 +65,18 @@ fi
 
 # Setup source system partition
 systempath=$sourcepath
+echo $systempath
 if [[ -e "$sourcepath/mounted.txt" ]]; then
     systempath=$sourcepath/system
 fi
+echo $systempath
 
 # Detect Source type, AB or not
 sourcetype="Aonly"
 if [[ -e "$sourcepath/system" ]]; then
     sourcetype="AB"
 fi
+echo $sourcetype
 
 tempdirname="tmp"
 tempdir="$LOCALDIR/$tempdirname"
