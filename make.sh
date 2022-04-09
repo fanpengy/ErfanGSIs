@@ -107,7 +107,7 @@ if [ "$sourcetype" == "Aonly" ]; then
     echo "ro.build.system_root_image=false" >> "$systemdir/system/build.prop"
 else
     echo "Making copy of source rom to temp"
-    ( cd "$systempath" ; sudo tar cf - . ) | ( cd "$systemdir/system" ; sudo tar xf - )
+    ( cd "$systempath" ; sudo tar cf - . ) | ( cd "$systemdir" ; sudo tar xf - )
     if [[ -e "$sourcepath/mounted.txt" ]]; then
         for p in `cat "$sourcepath/mounted.txt"`; do
             [[ $p = system ]] && continue
